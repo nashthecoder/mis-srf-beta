@@ -8,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import NativeSelect from '@material-ui/core/NativeSelect'
 import { FormControl, FormLabel, FormControlLabel } from '@material-ui/core'
 import { RadioGroup, Radio } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 
 const useStyles = makeStyles({
@@ -27,8 +28,8 @@ btn: {
 }
 })
 export default function Register() {
-
   const classes = useStyles()
+  const history = useHistory()
   const[ name, setName] = useState('')
   const[ dateOfBirth, setDateOfBirth] = useState('')
   const[ gender, setGender] = useState('female')
@@ -91,7 +92,28 @@ export default function Register() {
         clinic,
         team
         )
-    
+    if (name &&
+      dateOfBirth &&
+      gender &&
+      phone1 &&
+      caregiverName &&
+      relationship &&
+      clinic &&
+      team) {
+        fetch('http://localhost:8000/players', {
+          method: 'POST',
+          headers: {"Content-type": "application/json"},
+          body: JSON.stringify({ 
+            name, 
+            dateOfBirth,
+            gender,
+            phone1,
+            caregiverName,
+            relationship,
+            clinic,
+            team })
+        }).then(() => history.push('/'))
+      }
   }
   return (
     <Container size="sm">
@@ -262,7 +284,7 @@ export default function Register() {
             color="secondary" 
             variant="contained"
             endIcon={<KeyboardArrowRightIcon />}>
-            Submit
+            Register
         </Button>
       </form>
     </Container>

@@ -4,25 +4,28 @@ import Players from './pages/Players'
 import Register from './pages/Register'
 import Attendance from './pages/Attendance'
 import Visits from './pages/Visit'
+import Layout from './components/Layout';
 
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <Players />
-        </Route>
-        <Route path="/register">
-          <Register />
-        </Route>
-        <Route path="/attendance">
-          <Attendance />
-        </Route>
-        <Route path="/visits">
-          <Visits />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/">
+            <Players />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/attendance">
+            <Attendance />
+          </Route>
+          <Route path="/visits">
+            <Visits />
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
   );
 }
