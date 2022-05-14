@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Players from './pages/Players'
 import Register from './pages/Register'
 import Attendance from './pages/Attendance'
-import Visits from './pages/Visit'
+import Visits from './pages/Visits'
 import Layout from './components/Layout';
 
 
