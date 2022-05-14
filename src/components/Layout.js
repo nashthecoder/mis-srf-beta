@@ -1,10 +1,14 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core'
 import Drawer from '@material-ui/core/Drawer'
+// import { Image } from '@material-ui/icons'
 import Typography from '@material-ui/core/Typography'
 import SportsRugbyIcon from '@material-ui/icons/SportsRugby';
-
-const drawerWidth = 240
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+const drawerWidth = 200
 
 
 const useStyles = makeStyles({
@@ -38,11 +42,16 @@ export default function Layout({ children }) {
                 classes={{ paper: classes.drawerPaper}}
             >
                 <div>
-                    <Typography variant="h5">
-                    <SportsRugbyIcon />
-                        SRF MIS
+                    <Typography variant="h4">
+                    <SportsRugbyIcon 
+                    /> SRF MIS
                     </Typography>
                 </div>
+                <List>
+                    <ListItem></ListItem>
+                    <ListItem></ListItem>
+                    <ListItem></ListItem>
+                </List>
             </Drawer>
             <div className={classes.page}>
             { children }

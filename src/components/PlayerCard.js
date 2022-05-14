@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Box from '@material-ui/core/Box'
 import CardHeader from '@material-ui/core/CardHeader'
-// import CardMedia from '@material-ui/core/CardMedia' 
+import CardMedia from '@material-ui/core/CardMedia' 
 // import CardContent from '@material-ui/core/CardContent'
 // import IconButton from '@material-ui/core/IconButton'
 // import Typography from '@material-ui/core/Typography'
@@ -32,6 +32,12 @@ export default function PlayerCard({ player}) {
             <ArchiveOutlined />
           </IconButton>
         }/>
+        <CardMedia
+        component="img"
+        sx={{ width: 200 }}
+        image={require('../assets/man.png')}
+        alt="Profile Picture"
+        />
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h4">
             {player.name}
@@ -49,54 +55,7 @@ export default function PlayerCard({ player}) {
         
           </IconButton>
       </Box> */}
-      {/* <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image={"/src/assets/man.png"}
-        alt="Profile Picture"
-      /> */}
+      
     </Card>
-
-    // <Card>
-    //   <Box>
-    //     <CardContent>
-    //       <Typography key="name" component="div" variant="h5">Name: {player.name}</Typography>
-    //       <Typography key="id" component="div" variant="subtitle1">Id: {player.id}</Typography>
-    //       <Typography key="clinic" component="div" variant="subtitle1">Clinic: {player.clinic}</Typography>
-    //     </CardContent>
-    //   </Box>
-    //   <Box>
-
-    //   </Box>
-    //   <CardMedia
-    //   component="img"
-    //   sx={{ width: 151}}>
-    //   image="/src/assets/man.png"
-    //   alt="Profile Picture"
-    //   </CardMedia>
-    // </Card>
   )
 }
-
-// export default function PlayerCard({ player, handleDelete }) {
-//   return (
-//     <div>
-//       <Card elevation={1}>
-//         <CardHeader
-//           action={
-//             <IconButton onClick={() => handleDelete(player.id)}>
-//               <DeleteOutlined />
-//             </IconButton>
-//             }
-//             name={player.name}
-//             clinic={player.clinic}
-//           />
-//           <CardContent>
-//             <Typography variant="body2" color="textSecondary">
-//               {player.age}
-//             </Typography>
-//           </CardContent>
-//       </Card>
-//     </div>
-//   )
-// }

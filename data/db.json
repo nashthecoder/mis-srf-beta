@@ -54,6 +54,28 @@
       "clinic": "Kangemi",
       "team": "Under 12s",
       "id": 5
+    },
+    {
+      "name": "naijeria toweett",
+      "dateOfBirth": "12/11/1974",
+      "gender": "female",
+      "phone1": "0721787043",
+      "caregiverName": "Mama naijeria",
+      "relationship": "Mother",
+      "clinic": "Kangemi",
+      "team": "Under 12s",
+      "id": 6
+    },
+    {
+      "name": "Naijeria Toweett",
+      "dateOfBirth": "12/11/2011",
+      "gender": "female",
+      "phone1": "0722787878",
+      "caregiverName": "Mama Naijeria",
+      "relationship": "Mother",
+      "clinic": "Kangemi",
+      "team": "Senior",
+      "id": 7
     }
   ]
 }
