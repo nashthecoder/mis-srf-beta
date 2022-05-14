@@ -18,7 +18,7 @@ field: {
   display: 'block'
 }
 })
-export default function Create() {
+export default function Visit() {
 
   const classes = useStyles()
   const[ name, setName] = useState('')
@@ -27,8 +27,8 @@ export default function Create() {
   const[ gender, setGender] = useState('')
   const[ condition, setCondition] = useState('')
   const [caregiverName, setcaregiverName] = useState('')
-  const[ phone1, setPhone1] = useState('')
   const[ phone2, setPhone2] = useState('')
+  const[ phone3, setPhone3] = useState('')
   const[ relationship, setRelationship] = useState('')
   const[ grade, setGrade] = useState('')
   const[ clinic, setClinic] = useState('')
@@ -46,7 +46,7 @@ export default function Create() {
       && gender
       && condition
       && caregiverName
-      && phone1 
+      && phone3
       && relationship
       && school
       && grade
@@ -60,9 +60,9 @@ export default function Create() {
         age,
         dateOfBirth,
         gender,
-        phone1,
         condition,
         caregiverName,
+        phone3,
         relationship,
         school,
         grade,
@@ -156,7 +156,7 @@ export default function Create() {
           // required
           />
         <TextField
-          onChange={(e) => setPhone1(e.target.value)}
+          onChange={(e) => setPhone3(e.target.value)}
           className={classes.field} 
           label="Phone no:"
           variant="outlined"
