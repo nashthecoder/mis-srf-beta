@@ -76,6 +76,14 @@ export default function Visit() {
   return (
     <Container size="sm">
       <Typography
+        variant="h1" 
+        color="textSecondary"
+        component="h2"
+        gutterBottom
+      >
+       Visits
+      </Typography>
+      <Typography
         variant="h6" 
         color="textSecondary"
         component="h2"

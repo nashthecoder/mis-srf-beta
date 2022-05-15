@@ -32,8 +32,8 @@ import CottageOutlinedIcon from '@mui/icons-material/CottageOutlined'
 import VolunteerActivismOutlinedIcon from '@mui/icons-material/VolunteerActivismOutlined'
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import HowToRegOutlinedIcon from '@material-ui/icons/HowToRegOutlined'
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
 import SettingsIcon from '@mui/icons-material/Settings'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 
 
 const useStyles = makeStyles({
@@ -112,6 +112,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 }),
 );
 
+// const Search {
+    
+// };
+
 export default function Layout({children}) {
     const classes = useStyles()
     const theme = useTheme();
@@ -131,55 +135,55 @@ export default function Layout({children}) {
     const menuItems = [
                 {
             text: 'Dashboard',
-            icon: <DashboardOutlinedIcon style={{ color: "green" }}/>,
-            path: '/dashboard'
+            icon: <DashboardOutlinedIcon style={{ color: "green" }} />,
+            path: '/'
         },
         {
             text: 'Register',
-            icon: <HowToRegOutlinedIcon style={{ color: "green" }}/>,
+            icon: <HowToRegOutlinedIcon style={{ color: "green" }} />,
             path: '/register'
         },
         {
             text: 'Sessions',
-            icon: <LibraryAddCheckOutlinedIcon style={{ color: "green" }}/>,
-            path: '/session'
+            icon: <LibraryAddCheckOutlinedIcon style={{ color: "green" }} />,
+            path: '/sessions'
         },
         {
             text: 'Visits',
-            icon: <CottageOutlinedIcon style={{ color: "green" }}/>,
+            icon: <CottageOutlinedIcon   style={{ color: "green" }} />,
             path: '/visits'
         },
         {
             text: 'Counseling',
-            icon: <VolunteerActivismOutlinedIcon style={{ color: "green" }}/>,
+            icon: <VolunteerActivismOutlinedIcon style={{ color: "green" }} />,
             path: '/counseling'
         },
         {
             text: 'Education',
-            icon: <SchoolOutlinedIcon style={{ color: "green" }}/>,
+            icon: <SchoolOutlinedIcon style={{ color: "green" }} />,
             path: '/education'
         },
         {
             text: 'Life Skills',
-            icon: <SportsRugbyIcon style={{ color: "green" }}/>,
+            icon: <SportsRugbyIcon style={{ color: "green" }} />,
             path: '/lifeskills'
         },
         {
             text: 'Players',
-            icon: <PeopleAltOutlinedIcon style={{ color: "green" }}/>,
-            path: '/'
+            icon: <PeopleAltOutlinedIcon style={{ color: "green" }} />,
+            path: '/players'
         },
     ]
     const menuItems1 = [
         {
             text: 'Settings',
-            icon: <SettingsIcon style={{ color: "green" }}  />,
+            icon: <SettingsIcon style={{ color: "green" }} />,
             path: '/settings'
         },
         {
-            text: 'Logout',
-            icon: <LogoutOutlinedIcon style={{ color: "green" }}  />,
-            path: '/auth'
+            text: 'Admin',
+            icon: <LockOutlinedIcon style={{ color: "green" }} />,
+            path: '/admin'
         },
     ]
 
@@ -251,7 +255,7 @@ return (
         <Divider />
         <List>
             {menuItems1.map((item) => (
-                <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+                <ListItem className={classes.btn} key={item.text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
                     onClick={() => history.push(item.path)}
                     className={location.pathname === item.path ? classes.active : null}
@@ -270,7 +274,8 @@ return (
                     >
                     {item.icon}
                     </ListItemIcon>
-                    <ListItemText primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
+                    <ListItemText 
+                    primary={item.text} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
                 </ListItem>
             ))}

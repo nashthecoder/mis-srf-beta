@@ -9,7 +9,6 @@ import NativeSelect from '@material-ui/core/NativeSelect'
 import { FormControl, FormLabel, FormControlLabel } from '@material-ui/core'
 import { RadioGroup, Radio } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
-import Divider from '@material-ui/core/Divider'
 
 
 const useStyles = makeStyles({
@@ -118,27 +117,24 @@ export default function Register() {
   }
   return (
     <Container size="sm">
+    <Typography
+        variant="h1" 
+        color="textSecondary"
+        component="h2"
+        gutterBottom
+    >
+        COUNSELING
+    </Typography>
       <Typography
-        variant="h5" 
-        color="textPrimary"
+        variant="h6" 
+        color="textSecondary"
         component="h2"
         gutterBottom
       >
         Register a New Player
       </Typography>
-      <br/>
-      <Divider />
-      <br/>
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         {/* Player Details */}
-        <Typography
-        variant="h5" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
-      >
-        Player Bio
-      </Typography>
         <TextField
         onChange={(e) => setName(e.target.value)}
         className={classes.field} 
@@ -169,6 +165,7 @@ export default function Register() {
               <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>
         </FormControl>
+        <br/>
         {/* CareGiver Details */}
         <Typography
         variant="h6" 
@@ -222,6 +219,7 @@ export default function Register() {
         <br/>
         <br/>
         <br/>
+
         {/* SRF Details */}
         <Typography
         variant="h6" 
@@ -231,14 +229,13 @@ export default function Register() {
         >
         SRF Details
         </Typography>
-        <br/>
         <FormControl fullWidth>
           <InputLabel 
           onChange={(e) => setClinic(e.target.value)}
           variant="outlined" 
           htmlFor="uncontrolled-native"
           required
-          >
+         >
             Clinic
           </InputLabel>
           <NativeSelect
