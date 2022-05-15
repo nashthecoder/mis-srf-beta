@@ -15,7 +15,7 @@ export default function Players() {
   <Container>
     <Grid container spacing={3}>
       {players.map(player =>(
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} sm={8} md={4}>
           <PlayerCard player={player} />
         </Grid>
       ))}

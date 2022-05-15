@@ -21,9 +21,9 @@ Typography: {
   marginTop: 25,
 },
 btn: {
-  backgroundColor:'green',
+  backgroundColor:'#018934',
   '&:hover': {
-    backgroundColor: 'red'
+    backgroundColor: '#db8a90'
   }
 }
 })

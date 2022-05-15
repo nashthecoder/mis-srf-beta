@@ -4,7 +4,7 @@ import Players from './pages/Players'
 import Register from './pages/Register'
 import Attendance from './pages/Attendance'
 import Visits from './pages/Visits'
-import Layout from './components/Layout';
+import Layout from './components/Layout'
 
 
 function App() {
