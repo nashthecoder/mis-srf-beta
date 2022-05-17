@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import Home from './pages/Home'
 import Login from './pages/Login'
 import Players from './pages/Players'
 import Education from './pages/Education'
@@ -20,6 +21,9 @@ function App() {
     <Router>
       <Layout>
         <Switch>
+        <Route exact path="/">
+            <Home />
+          </Route>
           <Route exact path="/dashboard">
             <Dashboard />
           </Route>
