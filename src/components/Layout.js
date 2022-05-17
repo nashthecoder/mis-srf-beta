@@ -136,7 +136,7 @@ export default function Layout({children}) {
                 {
             text: 'Dashboard',
             icon: <DashboardOutlinedIcon style={{ color: "green" }} />,
-            path: '/'
+            path: '/dashboard'
         },
         {
             text: 'Register',

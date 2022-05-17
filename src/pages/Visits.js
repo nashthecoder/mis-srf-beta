@@ -3,8 +3,8 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
-import AddIcon from '@material-ui/icons/Add'
-import { makeStyles, Card, CardActions, CardContent, TextField  } from '@material-ui/core/'
+// import AddIcon from '@material-ui/icons/Add'
+import { makeStyles, TextField  } from '@material-ui/core/'
 import InputLabel from '@material-ui/core/InputLabel'
 import NativeSelect from '@material-ui/core/NativeSelect'
 // import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -22,52 +22,50 @@ export default function Visit() {
 
   const classes = useStyles()
   const[ name, setName] = useState('')
-  const[ age, setAge] = useState('')
   const[ dateOfBirth, setdateOfBirth] = useState('')
   const[ gender, setGender] = useState('')
-  const[ condition, setCondition] = useState('')
+  // const[ condition, setCondition] = useState('')
   const [caregiverName, setcaregiverName] = useState('')
-  const[ phone2, setPhone2] = useState('')
+  // const[ phone2, setPhone2] = useState('')
   const[ phone3, setPhone3] = useState('')
   const[ relationship, setRelationship] = useState('')
-  const[ grade, setGrade] = useState('')
+  // const[ grade, setGrade] = useState('')
   const[ clinic, setClinic] = useState('')
   const[ team, setTeam] = useState('')
-  const[ school, setSchool] = useState('')
-  const[ headteacher, setHeadteacher] = useState('')
-  // const[ age, setAge] = useState('')
-  // const [category, setCategory] = useState('')
+  // const[ school, setSchool] = useState('')
+  // const[ headteacher, setHeadteacher] = useState('')
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if ( name 
-      && age 
+      // && age 
       && dateOfBirth
       && gender
-      && condition
+      // && condition
       && caregiverName
       && phone3
       && relationship
-      && school
-      && grade
-      && headteacher
-      && phone2
+      // && school
+      // && grade
+      // && headteacher
+      // && phone2
       && clinic
       && team
       ) {
       console.log (
         name, 
-        age,
+        // age,
         dateOfBirth,
         gender,
-        condition,
+        // condition,
         caregiverName,
         phone3,
         relationship,
-        school,
-        grade,
-        headteacher,
-        phone2,
+        // school,
+        // grade,
+        // headteacher,
+        // phone2,
         clinic,
         team
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import Login from './pages/Login'
 import Players from './pages/Players'
 import Education from './pages/Education'
 import Counseling from './pages/Counseling'
@@ -19,7 +20,7 @@ function App() {
     <Router>
       <Layout>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/dashboard">
             <Dashboard />
           </Route>
           <Route path="/register">
@@ -43,11 +44,18 @@ function App() {
           <Route path="/players">
             <Players />
           </Route>
+
+          {/* Utilities */}
+          <Route path="/settings">
+            <Settings />
+          </Route>
           <Route path="/admin">
             <Admin />
           </Route>
-          <Route path="/settings">
-            <Settings />
+
+          {/* AppBar */}
+          <Route path="/login">
+            <Login />
           </Route>
         </Switch>
       </Layout>

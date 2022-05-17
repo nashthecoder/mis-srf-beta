@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import { makeStyles, TextField  } from '@material-ui/core/'
 import InputLabel from '@material-ui/core/InputLabel'
@@ -11,7 +13,9 @@ import { RadioGroup, Radio } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import Divider from '@material-ui/core/Divider'
 
-
+const defaultValues ={
+  ReactDatepicker: new Date(),
+}
 const useStyles = makeStyles({
 field: {
   marginTop: 20,
@@ -31,6 +35,7 @@ btn: {
 export default function Register() {
   const classes = useStyles()
   const history = useHistory()
+  const [startDate, setStartDate] = useState(new Date());
   const[ name, setName] = useState('')
   const[ dateOfBirth, setDateOfBirth] = useState('')
   const[ gender, setGender] = useState('female')
@@ -126,6 +131,8 @@ export default function Register() {
       >
         Register a New Player
       </Typography>
+      <br/>
+      <DatePicker className={classes.field} dateFormat="dd/MM/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
       <br/>
       <Divider />
       <br/>

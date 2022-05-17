@@ -76,6 +76,18 @@
       "clinic": "Kangemi",
       "team": "Senior",
       "id": 7
+    },
+    {
+      "date": "12/5/48",
+      "clinic": "Kibera",
+      "team": "Ngewe Primary",
+      "id": 8
+    },
+    {
+      "date": "12/3/22",
+      "clinic": "Kangemi",
+      "team": "Heideimarie Primary",
+      "id": 9
     }
   ]
 }

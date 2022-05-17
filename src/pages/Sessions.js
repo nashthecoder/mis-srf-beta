@@ -6,9 +6,13 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import { makeStyles, TextField  } from '@material-ui/core/'
 import InputLabel from '@material-ui/core/InputLabel'
 import NativeSelect from '@material-ui/core/NativeSelect'
-import { FormControl, FormLabel, FormControlLabel } from '@material-ui/core'
-import { RadioGroup, Radio } from '@material-ui/core'
+import { FormControl } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
+import Box from '@material-ui/core/Box';
+import Tab from '@material-ui/core/Tab';
+import TabContext from '@material-ui/lab/TabContext'
+import TabList from '@material-ui/lab/TabList';
+import TabPanel from '@material-ui/lab/TabPanel';
 
 
 const useStyles = makeStyles({
@@ -30,51 +34,26 @@ btn: {
 export default function Register() {
   const classes = useStyles()
   const history = useHistory()
-  const[ name, setName] = useState('')
-  const[ dateOfBirth, setDateOfBirth] = useState('')
-  const[ gender, setGender] = useState('female')
-  const [caregiverName, setCaregiverName] = useState('')
-  const[ phone1, setPhone1] = useState('')
-  const[ relationship, setRelationship] = useState('')
+  const [value, setValue] = React.useState('1');
+  const[ date, setDate] = useState('')
   const[ clinic, setClinic] = useState('')
   const[ team, setTeam] = useState('')
-  const[ nameError, setNameError] = useState('false')
-  const[ dateOfBirthError, setDateOfBirthError] = useState('false')
-  const[ genderError, setGenderError] = useState('false')
-  const[caregiverNameError, setCaregiverNameError] = useState('false')
-  const[ phone1Error, setPhone1Error] = useState('false')
-  const[ relationshipError, setRelationshipError] = useState('false')
+  const[ dateError, setDateError] = useState('false')
   const[ clinicError, setClinicError] = useState('false')
   const[ teamError, setTeamError] = useState('false')
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    setNameError(false)
-    setDateOfBirthError(false)
-    setGenderError(false)
-    setCaregiverNameError(false)
-    setPhone1Error(false)
-    setRelationshipError(false)
+    setDateError(false)
     setClinicError(false)
     setTeamError(false)
 
-    if ( name === '') {
-      setNameError(true)
-    }
-    if ( dateOfBirth === '') {
-      setDateOfBirthError(true)
-    }
-    if ( gender === '') {
-      setGenderError(true)
-    }
-    if ( caregiverName === '') {
-      setCaregiverNameError(true)
-    }
-    if ( phone1 === '') {
-      setPhone1Error(true)
-    }
-    if ( relationship === '') {
-      setRelationshipError(true)
+    if ( date === '') {
+      setDateError(true)
     }
     if ( clinic === '') {
       setClinicError(true)
@@ -83,216 +62,207 @@ export default function Register() {
       setTeamError(true)
     }
       console.log (
-        name, 
-        dateOfBirth,
-        gender,
-        phone1,
-        caregiverName,
-        relationship,
+        date,
         clinic,
         team
         )
-    if (name &&
-      dateOfBirth &&
-      gender &&
-      phone1 &&
-      caregiverName &&
-      relationship &&
+    if (
+      date &&
       clinic &&
       team) {
         fetch('http://localhost:8000/players', {
           method: 'POST',
           headers: {"Content-type": "application/json"},
           body: JSON.stringify({ 
-            name, 
-            dateOfBirth,
-            gender,
-            phone1,
-            caregiverName,
-            relationship,
+            date,
             clinic,
             team })
-        }).then(() => history.push('/'))
+        }).then(() => history.push('/sessions'))
       }
   }
   return (
     <Container size="sm">
     <Typography
-        variant="h1" 
+        variant="h5" 
         color="textSecondary"
         component="h2"
         gutterBottom
     >
-        SESSIONS
+        Sessions
     </Typography>
-      <Typography
-        variant="h6" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
-      >
-        Register a New Player
-      </Typography>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-        {/* Player Details */}
-        <TextField
-        onChange={(e) => setName(e.target.value)}
-        className={classes.field} 
-        label="Name"
-        variant="outlined"
-        fullWidth
-        required
-        error={nameError}
-        />
-        <TextField
-          onChange={(e) => setDateOfBirth(e.target.value)}
-        className={classes.field} 
-        label="Date of Birth"
-        variant="outlined"
-        fullWidth
-        required
-        error={dateOfBirthError}
-        />
-        <FormControl fullWidth className={classes.field}>
-          <FormLabel id="radio-buttons-group-label">Gender</FormLabel>
-            <RadioGroup
-              onChange={(e) => setGender(e.target.value)}
-              aria-labelledby="radio-buttons-group-label"
-              name="radio-buttons-group"
-              error={genderError}
-            >
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>
-        </FormControl>
-        <br/>
-        {/* CareGiver Details */}
-        <Typography
-        variant="h6" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
-        >
-        Care Giver Details
-        </Typography>
-        <TextField
-          onChange={(e) => setCaregiverName(e.target.value)}
-          className={classes.field} 
-          label="Name"
-          variant="outlined"
-          fullWidth
-          required
-          error={caregiverNameError}
-          />
-        <TextField
-          onChange={(e) => setPhone1(e.target.value)}
-          className={classes.field} 
-          label="Phone no:"
-          variant="outlined"
-          fullWidth
-          required
-          error={phone1Error}
-          />
-        <FormControl fullWidth>
-          <InputLabel 
-          variant="outlined" 
-          htmlFor="uncontrolled-native"
-          required
-          >
-            Relationship
-          </InputLabel>
-          <NativeSelect
-          onChange={(e) => setRelationship(e.target.value)}
-          error={relationshipError}
-            inputProps={{
-              name: 'relationship',
-              id: 'uncontrolled-native',
-            }}
-          >
-            onChange={(e) => setRelationship(e.target.value)}
-            error={relationshipError}
-            <option>Father</option>
-            <option>Mother</option>
-            <option>Guardian</option>
-          </NativeSelect>
-        </FormControl>
-        <br/>
-        <br/>
-        <br/>
-
-        {/* SRF Details */}
-        <Typography
-        variant="h6" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
-        >
-        SRF Details
-        </Typography>
-        <FormControl fullWidth>
-          <InputLabel 
-          onChange={(e) => setClinic(e.target.value)}
-          variant="outlined" 
-          htmlFor="uncontrolled-native"
-          required
-         >
-            Clinic
-          </InputLabel>
-          <NativeSelect
-            onChange={(e) => setClinic(e.target.value)}
-            error={clinicError}
-            inputProps={{
-              name: 'clinic',
-              id: 'uncontrolled-native',
-            }}
-          >
-            <option>Eastlands</option>
-            <option>Kangemi</option>
-            <option>Kibera</option>
-            <option>Korogocho</option>
-            <option>Mathare</option>
-            <option>Ngewe</option>
-            <option>Tatu City</option>
-          </NativeSelect>
-        </FormControl>
-        <br/>
-        <br/>
-        <br/>
-        <FormControl fullWidth>
-          <InputLabel 
-          variant="outlined" 
-          htmlFor="uncontrolled-native"
-          required
-          >
-            Team
-          </InputLabel>
-          <NativeSelect
-          onChange={(e) => setTeam(e.target.value)}
-          error={teamError}
-            inputProps={{
-              name: 'team',
-              id: 'uncontrolled-native',
-            }}
-          >
-            <option>Under 10s</option>
-            <option>Under 12s</option>
-            <option>Under 16s</option>
-            <option>Junior</option>
-            <option>Senior</option>
-          </NativeSelect>
-        </FormControl>
-        <br/>
-        <br/>
-        <br/>
-        <Button
-            className={classes.btn}
-            type="submit" 
-            color="secondary" 
-            variant="contained"
-            endIcon={<KeyboardArrowRightIcon />}>
-            Register
-        </Button>
-      </form>
+      <Box sx={{ width: '100%', typography: 'body1' }}>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: 'green' }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab label="School" value="1" />
+              <Tab label="Clinic" value="2" />
+            </TabList>
+          </Box>
+          <TabPanel value="1">
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+              {/* Session Date*/}
+              <TextField
+                onChange={(e) => setDate(e.target.value)}
+              className={classes.field} 
+              label="Date"
+              variant="outlined"
+              fullWidth
+              required
+              error={dateError}
+              />
+              <FormControl fullWidth>
+                <InputLabel 
+                onChange={(e) => setClinic(e.target.value)}
+                variant="outlined" 
+                htmlFor="uncontrolled-native"
+                required
+              >
+                  Clinic
+                </InputLabel>
+                <NativeSelect
+                  onChange={(e) => setClinic(e.target.value)}
+                  error={clinicError}
+                  inputProps={{
+                    name: 'clinic',
+                    id: 'uncontrolled-native',
+                  }}
+                >
+                  <option>Eastlands</option>
+                  <option>Kangemi</option>
+                  <option>Kibera</option>
+                  <option>Korogocho</option>
+                  <option>Mathare</option>
+                  <option>Ngewe</option>
+                  <option>Tatu City</option>
+                </NativeSelect>
+              </FormControl>
+              <br/>
+              <br/>
+              <br/>
+              <FormControl fullWidth>
+                <InputLabel 
+                variant="outlined" 
+                htmlFor="uncontrolled-native"
+                required
+                >
+                  School
+                </InputLabel>
+                <NativeSelect
+                onChange={(e) => setTeam(e.target.value)}
+                error={teamError}
+                  inputProps={{
+                    name: 'team',
+                    id: 'uncontrolled-native',
+                  }}
+                >
+                  <option>Ayany Primary</option>
+                  <option>Dr Kraph Primary</option>
+                  <option>Heideimarie Primary</option>
+                  <option>Harambee Primary</option>
+                  <option>Ngewe Primary</option>
+                  <option>Kongo Primary</option>
+                  <option>Mathare North Primary</option>
+                  <option>Ofafa Primary</option>
+                  <option>Oakland Primary</option>
+                  <option>Raila Primary</option>
+                  <option>St Michaels Promary</option>
+                  <option>Tatu Primary</option>
+                  <option>Toi Primary</option>
+                  <option>Uthiru Primary</option>
+                </NativeSelect>
+              </FormControl>
+              <br/>
+              <br/>
+              <br/>
+              <Button
+                  className={classes.btn}
+                  type="submit" 
+                  color="secondary" 
+                  variant="contained"
+                  endIcon={<KeyboardArrowRightIcon />}>
+                  Select
+              </Button>
+            </form>          
+          </TabPanel>
+          <TabPanel value="2">
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+              {/* Session Date*/}
+              <TextField
+                onChange={(e) => setDate(e.target.value)}
+              className={classes.field} 
+              label="Date"
+              variant="outlined"
+              fullWidth
+              required
+              error={dateError}
+              />
+              <FormControl fullWidth>
+                <InputLabel 
+                onChange={(e) => setClinic(e.target.value)}
+                variant="outlined" 
+                htmlFor="uncontrolled-native"
+                required
+              >
+                  Clinic
+                </InputLabel>
+                <NativeSelect
+                  onChange={(e) => setClinic(e.target.value)}
+                  error={clinicError}
+                  inputProps={{
+                    name: 'clinic',
+                    id: 'uncontrolled-native',
+                  }}
+                >
+                  <option>Eastlands</option>
+                  <option>Kangemi</option>
+                  <option>Kibera</option>
+                  <option>Korogocho</option>
+                  <option>Mathare</option>
+                  <option>Ngewe</option>
+                  <option>Tatu City</option>
+                </NativeSelect>
+              </FormControl>
+              <br/>
+              <br/>
+              <br/>
+              <FormControl fullWidth>
+                <InputLabel 
+                variant="outlined" 
+                htmlFor="uncontrolled-native"
+                required
+                >
+                  Team
+                </InputLabel>
+                <NativeSelect
+                onChange={(e) => setTeam(e.target.value)}
+                error={teamError}
+                  inputProps={{
+                    name: 'team',
+                    id: 'uncontrolled-native',
+                  }}
+                >
+                  <option>Under 10s</option>
+                  <option>Under 12s</option>
+                  <option>Under 16s</option>
+                  <option>Junior</option>
+                  <option>Senior</option>
+                </NativeSelect>
+              </FormControl>
+              <br/>
+              <br/>
+              <br/>
+              <Button
+                  className={classes.btn}
+                  type="submit" 
+                  color="secondary" 
+                  variant="contained"
+                  endIcon={<KeyboardArrowRightIcon />}>
+                  Select
+              </Button>
+            </form>
+          </TabPanel>
+        </TabContext>
+      </Box>
       <br/>
     </Container>
   )

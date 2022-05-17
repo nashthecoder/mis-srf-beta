@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Paper, Grid, Container } from '@material-ui/core'
+import { Grid, Container } from '@material-ui/core'
 import PlayerCard from '../components/PlayerCard' 
 
 export default function Players() {
