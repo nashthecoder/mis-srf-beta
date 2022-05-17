@@ -13,9 +13,9 @@ import { RadioGroup, Radio } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import Divider from '@material-ui/core/Divider'
 
-const defaultValues ={
-  ReactDatepicker: new Date(),
-}
+// const defaultValues ={
+//   ReactDatepicker: new Date(),
+// }
 const useStyles = makeStyles({
 field: {
   marginTop: 20,
