@@ -6,7 +6,7 @@ export default function Players() {
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/players')
+    fetch('https://my-json-server.typicode.com/nashthecoder/srf-mis-beta.db/players')
       .then(res => res.json())
       .then(data => setPlayers(data))
   }, [])

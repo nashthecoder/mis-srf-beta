@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
-import DatePicker from 'react-datepicker'
+import DatePicker from '../components/DatePicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import { makeStyles, TextField  } from '@material-ui/core/'
@@ -18,8 +18,8 @@ import Divider from '@material-ui/core/Divider'
 // }
 const useStyles = makeStyles({
 field: {
-  marginTop: 20,
-  marginBottom: 20,
+  marginTop: 15,
+  marginBottom: 15,
   display: 'block'
 },
 Typography: {
@@ -35,7 +35,6 @@ btn: {
 export default function Register() {
   const classes = useStyles()
   const history = useHistory()
-  const [startDate, setStartDate] = useState(new Date());
   const[ name, setName] = useState('')
   const[ dateOfBirth, setDateOfBirth] = useState('')
   const[ gender, setGender] = useState('female')
@@ -56,6 +55,7 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setNameError(false)
+    setDateOfBirth(false)
     setDateOfBirthError(false)
     setGenderError(false)
     setCaregiverNameError(false)
@@ -106,7 +106,7 @@ export default function Register() {
       relationship &&
       clinic &&
       team) {
-        fetch('http://localhost:8000/players', {
+        fetch('https://my-json-server.typicode.com/nashthecoder/srf-mis-beta.db/players', {
           method: 'POST',
           headers: {"Content-type": "application/json"},
           body: JSON.stringify({ 
@@ -132,7 +132,7 @@ export default function Register() {
         Register a New Player
       </Typography>
       <br/>
-      <DatePicker className={classes.field} dateFormat="dd/MM/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
+      
       <br/>
       <Divider />
       <br/>
@@ -155,12 +155,7 @@ export default function Register() {
         required
         error={nameError}
         />
-        <TextField
-          onChange={(e) => setDateOfBirth(e.target.value)}
-        className={classes.field} 
-        label="Date of Birth"
-        variant="outlined"
-        fullWidth
+        <DatePicker 
         required
         error={dateOfBirthError}
         />

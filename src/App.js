@@ -56,7 +56,6 @@ function App() {
           <Route path="/admin">
             <Admin />
           </Route>
-
           {/* AppBar */}
           <Route path="/login">
             <Login />

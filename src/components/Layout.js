@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core'
 
 import Box from '@mui/material/Box'
 import MuiDrawer from '@mui/material/Drawer'
-import MuiAppBar from '@mui/material/AppBar'
+import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import List from '@mui/material/List'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -34,18 +34,33 @@ import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import HowToRegOutlinedIcon from '@material-ui/icons/HowToRegOutlined'
 import SettingsIcon from '@mui/icons-material/Settings'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Avatar from '@material-ui/core/Avatar'
 
+const drawerWidth = 190;
 
-const useStyles = makeStyles({
-    btn: {
-        color: '#018934'
-    },
-    active: {
-        background: '#f4f4f4'
+const useStyles = makeStyles((theme) => {
+    return {
+        page: {
+            background: 'f9f9f9',
+            padding:theme.spacing(3),
+        },
+        btn: {
+            color: '#018934'
+        },
+        active: {
+            background: '#f4f4f4'
+        },
+        appbar: {
+            marginLeft: drawerWidth,
+            width: `calc(100% - ${drawerWidth}px)`
+        },
+        title: {
+            flexGrow:1
+        },
+        toolbar: theme.mixins.toolbar
     }
 })
 
-const drawerWidth = 190;
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -77,23 +92,23 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     ...theme.mixins.toolbar,
 }));
 
-const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== 'open',
-    })(({ theme, open }) => ({
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-    }),
-    }),
-}));
+// const AppBar = styled(AppBar, {
+//     shouldForwardProp: (prop) => prop !== 'open',
+//     })(({ theme, open }) => ({
+//     zIndex: theme.zIndex.drawer + 1,
+//     transition: theme.transitions.create(['width', 'margin'], {
+//         easing: theme.transitions.easing.sharp,
+//         duration: theme.transitions.duration.leavingScreen,
+//     }),
+// ...(open && {
+//     marginLeft: drawerWidth,
+//     width: `calc(100% - ${drawerWidth}px)`,
+//     transition: theme.transitions.create(['width', 'margin'], {
+//         easing: theme.transitions.easing.sharp,
+//         duration: theme.transitions.duration.enteringScreen,
+//     }),
+//     }),
+// }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
 ({ theme, open }) => ({
@@ -190,7 +205,11 @@ export default function Layout({children}) {
 return (
     <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar 
+            className={classes.appbar}
+            elevation={0} 
+            position="fixed" 
+            open={open}>
         <Toolbar>
             <IconButton
                 color="inherit"
@@ -204,9 +223,18 @@ return (
             >
                 <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap component="div">
+            <Typography 
+                className={classes.title}
+                variant="h6" 
+                noWrap component="div">
                 MIS
             </Typography>
+            <Typography 
+                variant="h6" 
+                noWrap component="div">
+                User
+            </Typography>
+            <Avatar />
             </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -283,8 +311,10 @@ return (
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             <DrawerHeader />
-            <div>
-            { children }
+            <div className={classes.page}>
+                <div className={classes.toolbar}>
+                { children }
+                </div>
             </div>
         </Box>
     </Box>
