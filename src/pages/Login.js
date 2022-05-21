@@ -68,6 +68,11 @@ export default function Login() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
+                    <Grid item xs>
+                        <Link href="./register" color="#018934" variant="body2">
+                            Player Registration Page
+                        </Link>
+                    </Grid>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
                         margin="normal"
@@ -94,8 +99,7 @@ export default function Login() {
                         label="Remember me"
                         />
                         <Button
-                            // type="submit"
-                            onClick={onClickUrl('./register')}
+                            type="submit"
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
