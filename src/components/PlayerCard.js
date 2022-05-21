@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from '@mui/material/Container'
 import Box from '@material-ui/core/Box'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia' 
@@ -18,32 +19,35 @@ export default function PlayerCard({ player}) {
   //   setExpanded(!expanded);
   // };
   return (
-    <Card elevation={3} sx={{ display: 'flex' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardHeader 
-        action={
-          <IconButton onClick={() => console.log('archive', player.name)}>
-            <ArchiveOutlined />
-          </IconButton>
-        }/>
-        <CardMedia
-        component="img"
-        sx={{ width: 121 }}
-        image={require('../assets/manResized.png')}
-        alt="Profile Picture"
-        />
-        <CardContent sx={{ flex: '2 0 auto' }}>
-          <Typography component="div" variant="h4">
-            {player.name}
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-            ID: {player.id}
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-            CLINIC: {player.clinic}
-          </Typography>
-        </CardContent>
-      </Box>
-    </Card>
+    <Container sx={{ py: 8 }} maxWidth="md">
+      <Card elevation={3} sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardHeader 
+          action={
+            <IconButton onClick={() => console.log('archive', player.name)}>
+              <ArchiveOutlined />
+            </IconButton>
+          }/>
+          <CardMedia
+          component="img"
+          sx={{ width: 121 }}
+          image={require('../assets/manResized.png')}
+          alt="Profile Picture"
+          />
+          <CardContent sx={{ flex: '2 0 auto' }}>
+            <Typography component="div" variant="h4">
+              {player.name}
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary" component="div">
+              ID: {player.id}
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary" component="div">
+              CLINIC: {player.clinic}
+            </Typography>
+          </CardContent>
+        </Box>
+      </Card>
+    </Container>
+    
   )
 }
