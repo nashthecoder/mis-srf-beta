@@ -18,7 +18,7 @@ export default function PlayerCard({ player}) {
   //   setExpanded(!expanded);
   // };
   return (
-    <Card elevation={1} sx={{ display: 'flex' }}>
+    <Card elevation={3} sx={{ display: 'flex' }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardHeader 
         action={
@@ -28,11 +28,11 @@ export default function PlayerCard({ player}) {
         }/>
         <CardMedia
         component="img"
-        sx={{ width: 200 }}
-        image={require('../assets/man.png')}
+        sx={{ width: 121 }}
+        image={require('../assets/manResized.png')}
         alt="Profile Picture"
         />
-        <CardContent sx={{ flex: '1 0 auto' }}>
+        <CardContent sx={{ flex: '2 0 auto' }}>
           <Typography component="div" variant="h4">
             {player.name}
           </Typography>

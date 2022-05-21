@@ -3,7 +3,7 @@ import { styled, useTheme } from '@mui/material/styles'
 import { useHistory, useLocation } from 'react-router-dom'
 
 //MATERIAL UI
-import { makeStyles } from '@material-ui/core'
+import { Avatar, makeStyles } from '@material-ui/core'
 
 import Box from '@mui/material/Box'
 import MuiDrawer from '@mui/material/Drawer'
@@ -36,12 +36,20 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 
 
-const useStyles = makeStyles({
-    btn: {
-        color: '#018934'
-    },
-    active: {
-        background: '#f4f4f4'
+const useStyles = makeStyles((theme) => {
+    return {
+        btn: {
+            color: '#018934'
+        },
+        active: {
+            background: '#f4f4f4'
+        },
+        title: {
+            flexGrow: 1
+        },
+        avatar: {
+            marginLeft: theme.spacing(2)
+        }
     }
 })
 
@@ -204,10 +212,22 @@ return (
             >
                 <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap component="div">
+            <Typography 
+                className={classes.title}
+                variant="h6" 
+                noWrap 
+                component="div">
                 MIS
             </Typography>
-            </Toolbar>
+            <Typography 
+                variant="h6" noWrap component="div">
+                User
+            </Typography>
+            <Avatar 
+                className={classes.avatar}
+                image={require('../assets/man.png')}      
+            />
+        </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
             <DrawerHeader>

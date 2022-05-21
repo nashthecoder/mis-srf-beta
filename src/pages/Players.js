@@ -13,7 +13,7 @@ export default function Players() {
 
   return (
   <Container>
-    <Grid container spacing={3}>
+    <Grid container spacing={4}>
       {players.map(player =>(
         <Grid item xs={12} sm={8} md={4}>
           <PlayerCard player={player} />

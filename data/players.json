@@ -76,17 +76,6 @@
       "clinic": "Kangemi",
       "team": "Senior",
       "id": 7
-    },
-    {
-      "name": "chepkoeh",
-      "dateOfBirth": "12/12/22",
-      "gender": "female",
-      "phone1": "0722556677",
-      "caregiverName": "toweett",
-      "relationship": "Guardian",
-      "clinic": "Mathare",
-      "team": "Under 12s",
-      "id": 18
     }
   ]
 }

@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
+import { format } from 'date-fns'
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 import { makeStyles, TextField  } from '@material-ui/core/'
 import InputLabel from '@material-ui/core/InputLabel'
@@ -35,7 +34,6 @@ btn: {
 export default function Register() {
   const classes = useStyles()
   const history = useHistory()
-  const [startDate, setStartDate] = useState(new Date());
   const[ name, setName] = useState('')
   const[ dateOfBirth, setDateOfBirth] = useState('')
   const[ gender, setGender] = useState('female')
@@ -132,7 +130,9 @@ export default function Register() {
         Register a New Player
       </Typography>
       <br/>
-      <DatePicker className={classes.field} dateFormat="dd/MM/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
+      <Typography>
+          {format(new Date(), 'do MMMM Y')}
+      </Typography>
       <br/>
       <Divider />
       <br/>
