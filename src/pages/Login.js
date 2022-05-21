@@ -95,7 +95,7 @@ export default function Login() {
                         />
                         <Button
                             // type="submit"
-                            onClick={onClickUrl('../register')}
+                            onClick={onClickUrl('./register')}
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
