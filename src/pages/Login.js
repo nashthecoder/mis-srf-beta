@@ -37,16 +37,7 @@ export default function Login() {
         email: data.get('email'),
         password: data.get('password'),
         });
-    };
-
-    const onClickUrl = (url) => {
-        return () => openInNewTab(url)
-        }
-    
-    const openInNewTab = (url) => {
-        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-        if (newWindow) newWindow.opener = null
-    }        
+    };    
     
     return (
         <ThemeProvider theme={theme}>
