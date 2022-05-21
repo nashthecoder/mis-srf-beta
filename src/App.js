@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './pages/Home'
+// import Home from './pages/Home'
 import Login from './pages/Login'
 import Players from './pages/Players'
 import Education from './pages/Education'
@@ -8,7 +8,7 @@ import Counseling from './pages/Counseling'
 import Lifeskills from './pages/Lifeskills'
 import Register from './pages/Register'
 import Sessions from './pages/Sessions'
-// import Visits from './pages/Visits'
+import Visits from './pages/Visits'
 import Admin from './pages/Admin'
 import Settings from './pages/Settings'
 import Dashboard from './pages/Dashboard';
@@ -19,13 +19,13 @@ function App() {
     <div>
       <Router>
           <Switch>
-            <Route exact path="/">
+            {/* <Route exact path="/">
               <Home />
-            </Route>
-            <Route exact path="/login">
+            </Route> */}
+            <Route exact path="/">
               <Login />
             </Route>
-            <Route exact path="#">
+            <Route exact path="/dashboard">
               <Dashboard />
             </Route>
             <Route path="/register">
@@ -34,16 +34,16 @@ function App() {
             <Route path="/sessions">
               <Sessions />
             </Route>
-            <Route path="#">
+            <Route path="/counseling">
               <Counseling />
             </Route>
-            <Route path="#">
+            <Route path="/education">
               <Education />
             </Route>
-            {/* <Route path="#">
+            <Route path="/visits">
               <Visits />
-            </Route> */}
-            <Route path="#">
+            </Route>
+            <Route path="/lifeskills">
               <Lifeskills />
             </Route>
             <Route path="/players">
@@ -51,13 +51,12 @@ function App() {
             </Route>
 
             {/* Utilities */}
-            <Route path="#">
+            <Route path="/settings">
               <Settings />
             </Route>
-            <Route path="#">
+            <Route path="/admin">
               <Admin />
             </Route>
-            {/* AppBar */}
           </Switch>
       </Router>
   
