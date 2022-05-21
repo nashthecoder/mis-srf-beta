@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-// import Home from './pages/Home'
+import Home from './pages/Home'
+import Login from './pages/Login'
 import Players from './pages/Players'
 import Education from './pages/Education'
 import Counseling from './pages/Counseling'
@@ -18,11 +18,13 @@ function App() {
   return (
     <div>
       <Router>
-        <Layout>
           <Switch>
-            {/* <Route exact path="/">
+            <Route exact path="/">
               <Home />
-            </Route> */}
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
             <Route exact path="#">
               <Dashboard />
             </Route>
@@ -57,7 +59,6 @@ function App() {
             </Route>
             {/* AppBar */}
           </Switch>
-        </Layout>
       </Router>
   
     </div>

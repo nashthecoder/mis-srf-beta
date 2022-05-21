@@ -11,6 +11,7 @@ import { FormControl, FormLabel, FormControlLabel } from '@material-ui/core'
 import { RadioGroup, Radio } from '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 import Divider from '@material-ui/core/Divider'
+import Layout from '../components/Layout'
 
 // const defaultValues ={
 //   ReactDatepicker: new Date(),
@@ -120,190 +121,192 @@ export default function Register() {
       }
   }
   return (
-    <Container size="sm">
-      <Typography
-        variant="h5" 
-        color="textPrimary"
-        component="h2"
-        gutterBottom
-      >
-        Register a New Player
-      </Typography>
-      <br/>
-      <Typography>
-          {format(new Date(), 'do MMMM Y')}
-      </Typography>
-      <br/>
-      <Divider />
-      <br/>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-        {/* Player Details */}
+    <Layout>
+      <Container size="sm">
         <Typography
-        variant="h5" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
-      >
-        Player Bio
-      </Typography>
-        <TextField
-        onChange={(e) => setName(e.target.value)}
-        className={classes.field} 
-        label="Name"
-        variant="outlined"
-        fullWidth
-        required
-        error={nameError}
-        />
-        <TextField
-          onChange={(e) => setDateOfBirth(e.target.value)}
-        className={classes.field} 
-        label="Date of Birth"
-        variant="outlined"
-        fullWidth
-        required
-        error={dateOfBirthError}
-        />
-        <FormControl fullWidth className={classes.field}>
-          <FormLabel id="radio-buttons-group-label">Gender</FormLabel>
-            <RadioGroup
-              onChange={(e) => setGender(e.target.value)}
-              aria-labelledby="radio-buttons-group-label"
-              name="radio-buttons-group"
-              error={genderError}
-            >
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-            </RadioGroup>
-        </FormControl>
-        {/* CareGiver Details */}
-        <Typography
-        variant="h6" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
+          variant="h5" 
+          color="textPrimary"
+          component="h2"
+          gutterBottom
         >
-        Care Giver Details
+          Register a New Player
         </Typography>
-        <TextField
-          onChange={(e) => setCaregiverName(e.target.value)}
+        <br/>
+        <Typography>
+            {format(new Date(), 'do MMMM Y')}
+        </Typography>
+        <br/>
+        <Divider />
+        <br/>
+        <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+          {/* Player Details */}
+          <Typography
+          variant="h5" 
+          color="textSecondary"
+          component="h2"
+          gutterBottom
+        >
+          Player Bio
+        </Typography>
+          <TextField
+          onChange={(e) => setName(e.target.value)}
           className={classes.field} 
           label="Name"
           variant="outlined"
           fullWidth
           required
-          error={caregiverNameError}
+          error={nameError}
           />
-        <TextField
-          onChange={(e) => setPhone1(e.target.value)}
+          <TextField
+            onChange={(e) => setDateOfBirth(e.target.value)}
           className={classes.field} 
-          label="Phone no:"
+          label="Date of Birth"
           variant="outlined"
           fullWidth
           required
-          error={phone1Error}
+          error={dateOfBirthError}
           />
-        <FormControl fullWidth>
-          <InputLabel 
-          variant="outlined" 
-          htmlFor="uncontrolled-native"
-          required
+          <FormControl fullWidth className={classes.field}>
+            <FormLabel id="radio-buttons-group-label">Gender</FormLabel>
+              <RadioGroup
+                onChange={(e) => setGender(e.target.value)}
+                aria-labelledby="radio-buttons-group-label"
+                name="radio-buttons-group"
+                error={genderError}
+              >
+                <FormControlLabel value="female" control={<Radio />} label="Female" />
+                <FormControlLabel value="male" control={<Radio />} label="Male" />
+              </RadioGroup>
+          </FormControl>
+          {/* CareGiver Details */}
+          <Typography
+          variant="h6" 
+          color="textSecondary"
+          component="h2"
+          gutterBottom
           >
-            Relationship
-          </InputLabel>
-          <NativeSelect
-          onChange={(e) => setRelationship(e.target.value)}
-          error={relationshipError}
-            inputProps={{
-              name: 'relationship',
-              id: 'uncontrolled-native',
-            }}
-          >
+          Care Giver Details
+          </Typography>
+          <TextField
+            onChange={(e) => setCaregiverName(e.target.value)}
+            className={classes.field} 
+            label="Name"
+            variant="outlined"
+            fullWidth
+            required
+            error={caregiverNameError}
+            />
+          <TextField
+            onChange={(e) => setPhone1(e.target.value)}
+            className={classes.field} 
+            label="Phone no:"
+            variant="outlined"
+            fullWidth
+            required
+            error={phone1Error}
+            />
+          <FormControl fullWidth>
+            <InputLabel 
+            variant="outlined" 
+            htmlFor="uncontrolled-native"
+            required
+            >
+              Relationship
+            </InputLabel>
+            <NativeSelect
             onChange={(e) => setRelationship(e.target.value)}
             error={relationshipError}
-            <option>Father</option>
-            <option>Mother</option>
-            <option>Guardian</option>
-          </NativeSelect>
-        </FormControl>
-        <br/>
-        <br/>
-        <br/>
-        {/* SRF Details */}
-        <Typography
-        variant="h6" 
-        color="textSecondary"
-        component="h2"
-        gutterBottom
-        >
-        SRF Details
-        </Typography>
-        <br/>
-        <FormControl fullWidth>
-          <InputLabel 
-          onChange={(e) => setClinic(e.target.value)}
-          variant="outlined" 
-          htmlFor="uncontrolled-native"
-          required
+              inputProps={{
+                name: 'relationship',
+                id: 'uncontrolled-native',
+              }}
+            >
+              onChange={(e) => setRelationship(e.target.value)}
+              error={relationshipError}
+              <option>Father</option>
+              <option>Mother</option>
+              <option>Guardian</option>
+            </NativeSelect>
+          </FormControl>
+          <br/>
+          <br/>
+          <br/>
+          {/* SRF Details */}
+          <Typography
+          variant="h6" 
+          color="textSecondary"
+          component="h2"
+          gutterBottom
           >
-            Clinic
-          </InputLabel>
-          <NativeSelect
+          SRF Details
+          </Typography>
+          <br/>
+          <FormControl fullWidth>
+            <InputLabel 
             onChange={(e) => setClinic(e.target.value)}
-            error={clinicError}
-            inputProps={{
-              name: 'clinic',
-              id: 'uncontrolled-native',
-            }}
-          >
-            <option>Eastlands</option>
-            <option>Kangemi</option>
-            <option>Kibera</option>
-            <option>Korogocho</option>
-            <option>Mathare</option>
-            <option>Ngewe</option>
-            <option>Tatu City</option>
-          </NativeSelect>
-        </FormControl>
+            variant="outlined" 
+            htmlFor="uncontrolled-native"
+            required
+            >
+              Clinic
+            </InputLabel>
+            <NativeSelect
+              onChange={(e) => setClinic(e.target.value)}
+              error={clinicError}
+              inputProps={{
+                name: 'clinic',
+                id: 'uncontrolled-native',
+              }}
+            >
+              <option>Eastlands</option>
+              <option>Kangemi</option>
+              <option>Kibera</option>
+              <option>Korogocho</option>
+              <option>Mathare</option>
+              <option>Ngewe</option>
+              <option>Tatu City</option>
+            </NativeSelect>
+          </FormControl>
+          <br/>
+          <br/>
+          <br/>
+          <FormControl fullWidth>
+            <InputLabel 
+            variant="outlined" 
+            htmlFor="uncontrolled-native"
+            required
+            >
+              Team
+            </InputLabel>
+            <NativeSelect
+            onChange={(e) => setTeam(e.target.value)}
+            error={teamError}
+              inputProps={{
+                name: 'team',
+                id: 'uncontrolled-native',
+              }}
+            >
+              <option>Under 10s</option>
+              <option>Under 12s</option>
+              <option>Under 16s</option>
+              <option>Junior</option>
+              <option>Senior</option>
+            </NativeSelect>
+          </FormControl>
+          <br/>
+          <br/>
+          <br/>
+          <Button
+              className={classes.btn}
+              type="submit" 
+              color="secondary" 
+              variant="contained"
+              endIcon={<KeyboardArrowRightIcon />}>
+              Register
+          </Button>
+        </form>
         <br/>
-        <br/>
-        <br/>
-        <FormControl fullWidth>
-          <InputLabel 
-          variant="outlined" 
-          htmlFor="uncontrolled-native"
-          required
-          >
-            Team
-          </InputLabel>
-          <NativeSelect
-          onChange={(e) => setTeam(e.target.value)}
-          error={teamError}
-            inputProps={{
-              name: 'team',
-              id: 'uncontrolled-native',
-            }}
-          >
-            <option>Under 10s</option>
-            <option>Under 12s</option>
-            <option>Under 16s</option>
-            <option>Junior</option>
-            <option>Senior</option>
-          </NativeSelect>
-        </FormControl>
-        <br/>
-        <br/>
-        <br/>
-        <Button
-            className={classes.btn}
-            type="submit" 
-            color="secondary" 
-            variant="contained"
-            endIcon={<KeyboardArrowRightIcon />}>
-            Register
-        </Button>
-      </form>
-      <br/>
-    </Container>
+      </Container>
+    </Layout>
   )
 }

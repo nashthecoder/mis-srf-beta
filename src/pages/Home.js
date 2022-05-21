@@ -3,10 +3,10 @@ import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography';
-
+import Layout from '../components/Layout'
 export default function Home() {
     return (
-        <div>
+        <Layout>
             <Card>
                 <CardHeader>
                     <Typography>
@@ -17,8 +17,7 @@ export default function Home() {
                 <CardContent>
 
                 </CardContent>
-            </Card>
-            
-        </div>
+            </Card>   
+        </Layout>
     )
 }
