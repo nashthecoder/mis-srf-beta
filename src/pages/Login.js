@@ -38,7 +38,7 @@ export default function Login() {
         password: data.get('password'),
         });
     };    
-    
+
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -59,11 +59,6 @@ export default function Login() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <Grid item xs>
-                        <Link href="./register" color="#018934" variant="body2">
-                            Player Registration Page
-                        </Link>
-                    </Grid>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
                         margin="normal"
