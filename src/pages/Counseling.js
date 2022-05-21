@@ -1,16 +1,16 @@
-// import React, { useEffect, useState } from 'react'
-// import { Grid, Container } from '@material-ui/core'
-// import CounselingCard from '../components/CounselingCard' 
+import React from 'react'
+import Layout from '../components/Layout'
 
-// // export default function Counseling() {
-// //   return (
-// //     <div>
-// //         <h1>Counseling</h1>
-// //         <h2>Coming Soon</h2>
-// //     </div>
-// //   )
-// // }
+export default function Counseling() {
+    return (
+        <Layout>
+            <h1>Counseling</h1>
+            <h2>Coming Soon</h2>
+        </Layout>
+    )
+}
 
+//, { useEffect, useState }
 
 // export default function Counseling() {
 //   const [counseling, setCounseling] = useState([]);

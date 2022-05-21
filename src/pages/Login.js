@@ -38,6 +38,15 @@ export default function Login() {
         password: data.get('password'),
         });
     };
+
+    const onClickUrl = (url) => {
+        return () => openInNewTab(url)
+        }
+    
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }        
     
     return (
         <ThemeProvider theme={theme}>
@@ -46,6 +55,7 @@ export default function Login() {
                 <main sx={{backgroundColor: '#018934'}}>
                 <Box
                 sx={{
+                    backgroundColor: '#ffffff',
                     marginTop: 8,
                     display: 'flex',
                     flexDirection: 'column',
@@ -84,7 +94,8 @@ export default function Login() {
                         label="Remember me"
                         />
                         <Button
-                            type="submit"
+                            // type="submit"
+                            onClick={onClickUrl('../register')}
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}

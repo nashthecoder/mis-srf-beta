@@ -1,12 +1,13 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
 export default function Admin() {
     return (
-        <div>
+        <Layout>
             <h1>
                 Admin
             </h1>
             <h2>Coming soon</h2>
-        </div>
+        </Layout>
     )
 }
