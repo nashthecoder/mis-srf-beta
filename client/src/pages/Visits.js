@@ -61,7 +61,6 @@ export default function BasicTabs() {
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
             <Tab label="Initial Visit" {...a11yProps(0)} />
             <Tab label="Class 8 Visit" {...a11yProps(1)} />
-            <Tab label="Follow Up" {...a11yProps(2)} />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
@@ -69,9 +68,6 @@ export default function BasicTabs() {
         </TabPanel>
         <TabPanel value={value} index={1}>
           Class 8 Visit
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Follow Up
         </TabPanel>
       </Box>
     </Layout>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { styled, useTheme } from '@mui/material/styles'
+import { styled,  alpha, useTheme } from '@mui/material/styles'
 import { useHistory, useLocation } from 'react-router-dom'
 
 //MATERIAL UI
@@ -22,6 +22,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
+import InputBase from '@mui/material/InputBase';
 
 // ICONS
 import SportsRugbyIcon from '@material-ui/icons/SportsRugby'
@@ -34,6 +35,7 @@ import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
 import HowToRegOutlinedIcon from '@material-ui/icons/HowToRegOutlined'
 import SettingsIcon from '@mui/icons-material/Settings'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import SearchIcon from '@mui/icons-material/Search'
 
 
 const useStyles = makeStyles((theme) => {
@@ -101,6 +103,46 @@ const AppBar = styled(MuiAppBar, {
         duration: theme.transitions.duration.enteringScreen,
     }),
     }),
+}));
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '25%',
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(3),
+        width: 'auto',
+    },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+        padding: theme.spacing(0, 2),
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+        color: 'inherit',
+        '& .MuiInputBase-input': {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(3)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '20ch',
+        },
+        },
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -219,6 +261,15 @@ return (
                 component="div">
                 MIS
             </Typography>
+            <Search>
+                <SearchIconWrapper>
+                    <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                        placeholder=""
+                        inputProps={{ 'aria-label': 'search' }}
+                    />
+                </Search>
             <Typography 
                 variant="h6" noWrap component="div">
                 User

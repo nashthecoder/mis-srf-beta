@@ -1,11 +1,9 @@
 
 import React from 'react'
-import { styled, alpha } from '@mui/material/styles'
 import { Stack } from '@mui/material';
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Layout from '../components/Layout'
-import InputBase from '@mui/material/InputBase';
 import Container from '@material-ui/core/Container'
 import { format } from 'date-fns'
 import { makeStyles, TextField  } from '@material-ui/core/'
@@ -20,7 +18,6 @@ import Box from '@material-ui/core/Box';
 import TabContext from '@material-ui/lab/TabContext'
 // import TabList from '@material-ui/lab/TabList'
 import TabPanel from '@material-ui/lab/TabPanel'
-import SearchIcon from '@mui/icons-material/Search'
 
 const useStyles = makeStyles({
     field: {
@@ -38,53 +35,13 @@ const useStyles = makeStyles({
         }
     },
     textField: {
-        padding: 20,
+        paddingTop: 20,
 
     },
     search: {
         backgroundColor: ''
     }
 })
-
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(3),
-        width: 'auto',
-    },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
-        '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
-        },
-}));
 
 export default function Counseling() {
     const classes = useStyles()
@@ -150,15 +107,6 @@ export default function Counseling() {
                             {format(new Date(), 'do MMMM Y')}
                         </Typography>
                         <br/>
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                            placeholder="Search for player"
-                            inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </Search>
                         <br/>
                         <Stack
                             direction="row"
@@ -168,9 +116,9 @@ export default function Counseling() {
                         >
                             <Card>
                                 <Typography>
-                                    <CardContent sx={{ flex: '2 0 auto' }}>
-                                        <Typography component="div" variant="h5">
-                                            Name
+                                    <CardContent sx={{ flex: '1 0 auto' }}>
+                                        <Typography component="div" variant="subtitle1">
+                                            NAME
                                         </Typography>
                                         <Typography variant="subtitle1" color="text.secondary" component="div">
                                             ID
