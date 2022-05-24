@@ -86,7 +86,7 @@ export default function Register() {
       <Container size="sm">
       <Typography
           variant="h5" 
-          color="textSecondary"
+          color="textPrimary"
           component="h2"
           gutterBottom
       >
